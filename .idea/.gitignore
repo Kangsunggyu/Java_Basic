@@ -1,3 +1,17 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+# IntelliJ IDEA 폴더 무시
+.idea/
+*.iml
+
+# 빌드 출력물 무시
+/out/
+/build/
+
+# OS별 불필요 파일 무시
+.DS_Store
+Thumbs.db
+
+# 로그 파일 무시
+*.log
+
+# 기타 임시 파일 무시
+*.class
