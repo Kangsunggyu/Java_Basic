@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Java_2025.iml" filepath="$PROJECT_DIR$/.idea/Java_2025.iml" />
       <module fileurl="file://$PROJECT_DIR$/_06_객체지향언어/_06_객체지향언어.iml" filepath="$PROJECT_DIR$/_06_객체지향언어/_06_객체지향언어.iml" />
       <module fileurl="file://$PROJECT_DIR$/_07_객체지향언어/_07_객체지향언어.iml" filepath="$PROJECT_DIR$/_07_객체지향언어/_07_객체지향언어.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_08_예외처리/_08_예외처리.iml" filepath="$PROJECT_DIR$/_08_예외처리/_08_예외처리.iml" />
     </modules>
   </component>
 </project>
