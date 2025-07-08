@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/_06_객체지향언어/_06_객체지향언어.iml" filepath="$PROJECT_DIR$/_06_객체지향언어/_06_객체지향언어.iml" />
       <module fileurl="file://$PROJECT_DIR$/_07_객체지향언어/_07_객체지향언어.iml" filepath="$PROJECT_DIR$/_07_객체지향언어/_07_객체지향언어.iml" />
       <module fileurl="file://$PROJECT_DIR$/_08_예외처리/_08_예외처리.iml" filepath="$PROJECT_DIR$/_08_예외처리/_08_예외처리.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_11_컬렉션/_11_컬렉션.iml" filepath="$PROJECT_DIR$/_11_컬렉션/_11_컬렉션.iml" />
+      <module fileurl="file://$PROJECT_DIR$/_12_제네릭스/_12_제네릭스.iml" filepath="$PROJECT_DIR$/_12_제네릭스/_12_제네릭스.iml" />
     </modules>
   </component>
 </project>
