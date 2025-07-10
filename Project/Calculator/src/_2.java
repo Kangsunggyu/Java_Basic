@@ -47,14 +47,14 @@ public class _2 {
                 calculator.history.printHistory();
                 System.out.println("----------------\n");
 
-                System.out.print("프로그램을 종료하려면 \"exit\"를 입력하거나, 계속하려면 아무 키나 입력하세요: ");
+                System.out.print("프로그램을 종료하려면 \"exit\"를 입력하거나, 계속하려면 아무 키나 입력하시오: ");
                 exitInput = scanner.nextLine().trim();
                 if (exitInput.equalsIgnoreCase("exit")) {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("잘못된 입력입니다. 숫자를 입력해주세요");
+                System.out.println("잘못된 입력입니다. 숫자를 입력하시오");
                 scanner.nextLine();
             } catch (Exception e) {
                 System.out.println("알 수 없는 오류가 발생했습니다: " + e.getMessage());

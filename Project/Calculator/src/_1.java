@@ -33,7 +33,7 @@ public class _1 {
                         System.out.println(i + " / " + j + " = " + (i / j));
                         break;
                     } else{
-                        System.out.println("0은 안됨");
+                        System.out.println("0으로는 나눌 수 없습니다.");
                     }
                 }
                 default:{
