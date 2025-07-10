@@ -29,7 +29,7 @@ class Person{
 
 
 
-    // 이를 정의해야 한다.
+    // 이를 정의해야 한다. 복붙해라
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
