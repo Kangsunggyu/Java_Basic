@@ -4,6 +4,8 @@ public class _12_제한된_제네릭스_클래스 {
     public static void main(String[] args) {
         // FruitBox는 Fruit이면서 Eatable한 타입만 담을 수 있음
         FruitBox<Fruit> fruitBox = new FruitBox<>();
+
+        //예시
         FruitBox<Apple> appleBox = new FruitBox<>();
         FruitBox<Grape> grapeBox = new FruitBox<>();
         // FruitBox<Toy> toyBox = new FruitBox<>(); // 에러! Toy는 Fruit도 아니고 Eatable도 아님
@@ -11,6 +13,7 @@ public class _12_제한된_제네릭스_클래스 {
         fruitBox.add(new Fruit());
         fruitBox.add(new Apple()); // Fruit의 자손이므로 OK
         fruitBox.add(new Grape()); // Fruit의 자손이므로 OK
+
 
         appleBox.add(new Apple());
         // appleBox.add(new Grape()); // 에러! Grape는 Apple의 자손이 아님

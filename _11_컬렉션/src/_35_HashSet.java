@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-
+// 중복허용안됨
 public class _35_HashSet {
     public static void main(String[] args) {
         Object[] obj = {"1", new Integer(1), "2", "3", "3", "4"};
