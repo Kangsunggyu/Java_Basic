@@ -1,10 +1,11 @@
-package Lv3;
+package Lv3_alpha;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Lv3 {
+public class Lv3_alpha {
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
+        Calculator<Double> calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         Operator operator;
         double i, j;

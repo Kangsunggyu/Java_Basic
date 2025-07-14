@@ -1,4 +1,4 @@
-package Lv3;
+package Lv3_alpha;
 
 import java.util.ArrayList;
 import java.util.function.BinaryOperator;
@@ -43,11 +43,11 @@ class History {
     }
 }
 
-class Calculator {
+class Calculator <T extends Number> {
     private History history = new History();
-    void doOperation(double a, double b, Operator operator) {
+    void doOperation(T a, T b, Operator operator) {
         double result = 0;
-        result = operator.applyEnum(a, b);
+        result = operator.applyEnum(a.doubleValue(), b.doubleValue());
         System.out.println(a + " " + operator.getSymbol() + " " + b + " = " + result);
         history.addHistory(result);
     }
