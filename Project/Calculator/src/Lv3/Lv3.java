@@ -1,44 +1,39 @@
 package Lv3;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class Lv3 {
     public static void main(String[] args) {
-        double i, j;
-        char operator;
-        String exitInput;
-
         Calculator calculator = new Calculator();
 
         Scanner scanner = new Scanner(System.in);
+        Operator operator;
 
         while (true) {
             try {
                 System.out.print("첫번째 숫자를 입력하시오: ");
-                i = scanner.nextDouble();
+                double i = scanner.nextDouble();
                 System.out.print("두번째 숫자를 입력하시오: ");
-                j = scanner.nextDouble();
+                double j = scanner.nextDouble();
                 System.out.print("연산자를 입력하시오 (+, -, *, /): ");
-                operator = scanner.next().charAt(0);
+                char operatorChar = scanner.next().charAt(0);
                 scanner.nextLine();
 
-                switch (operator) {
-                    case '+': calculator.add(i, j); break;
-                    case '-': calculator.subtract(i, j); break;
-                    case '*': calculator.multiply(i, j); break;
-                    case '/': calculator.divide(i, j); break;
-                    default: System.out.println("연산자를 올바르게 작성하시오."); break;
+                operator = Operator.fromSymbol(operatorChar); // + - / % 를 입력했는지 확인, 아니라면 null을 리턴, 클래스 메서드
+
+                if (operator == null) {
+                    System.out.println("연산자를 올바르게 작성하시오.");
+                } else {
+                    calculator.DoOperation(i, j, operator); // Operator operator 을 연산자로 보낸다.
                 }
 
                 System.out.println("\n--- 계산 이력 ---");
-                calculator.history.printHistory();
+                calculator.getHistory().printHistory();
                 System.out.println("----------------\n");
 
                 System.out.print("프로그램을 종료하려면 \"exit\"를 입력하거나, 계속하려면 아무 키나 입력하시오: ");
-                exitInput = scanner.nextLine().trim();
+                String exitInput = scanner.nextLine().trim();
                 if (exitInput.equalsIgnoreCase("exit")) {
                     System.out.println("프로그램을 종료합니다.");
                     break;
@@ -52,84 +47,5 @@ public class Lv3 {
             }
         }
         scanner.close();
-    }
-}
-
-
-class History {
-    private ArrayList<Double> arrayList = new ArrayList<>();
-
-    private static final int MAX_HISTORY_SIZE = 10;
-
-    Double getHistory(int num){
-        if (num >= 0 && num < arrayList.size()) {
-            return arrayList.get(num);
-        } else {
-            System.out.println("오류: 유효하지 않은 이력 인덱스입니다.");
-            return null;
-        }
-    }
-
-    void setHistory(int num, double value){
-        if (num >= 0 && num < arrayList.size()) {
-            arrayList.set(num, value);
-        } else {
-            System.out.println("오류: 유효하지 않은 이력 인덱스입니다.");
-        }
-    }
-
-    private void removeHistory(){
-        arrayList.remove(0);
-    }
-
-    void addHistory(Double value){
-        if(arrayList.size() >= MAX_HISTORY_SIZE){
-            removeHistory();
-        }
-        arrayList.add(value);
-    }
-
-    void printHistory(){
-        if (arrayList.isEmpty()) {
-            System.out.println("저장된 계산 이력이 없습니다.");
-            return;
-        }
-        for (int i = 0; i < this.arrayList.size(); i++) {
-            System.out.println((i + 1) + ". " + this.getHistory(i));
-        }
-    }
-
-}
-
-
-class Calculator {
-
-    History history = new History();
-
-    void add(double a, double b) {
-        calculate(a, b, '+', a + b);
-    }
-
-    void subtract(double a, double b) {
-        calculate(a, b, '-', a - b);
-    }
-
-    void multiply(double a, double b) {
-        calculate(a, b, '*', a * b);
-    }
-
-    void divide(double a, double b) {
-        if (b == 0) {
-            System.out.println("0으로는 나눌 수 없습니다.");
-            return;
-        }
-        calculate(a, b, '/', a / b);
-    }
-
-
-
-    private void calculate(double a, double b, char operator, double result) {
-        System.out.println(a + " " + operator + " " + b + " = " + result);
-        history.addHistory(result);
     }
 }

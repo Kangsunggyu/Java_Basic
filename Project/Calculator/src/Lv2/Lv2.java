@@ -1,3 +1,5 @@
+package Lv2;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -5,20 +7,20 @@ import java.util.Scanner;
 
 public class Lv2 {
     public static void main(String[] args) {
-        double i, j;
+        int i, j;
         char operator;
         String exitInput;
 
-        Lv3.Calculator calculator = new Lv3.Calculator();
+        Calculator calculator = new Calculator();
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
             try {
                 System.out.print("첫번째 숫자를 입력하시오: ");
-                i = scanner.nextDouble();
+                i = scanner.nextInt();
                 System.out.print("두번째 숫자를 입력하시오: ");
-                j = scanner.nextDouble();
+                j = scanner.nextInt();
                 System.out.print("연산자를 입력하시오 (+, -, *, /): ");
                 operator = scanner.next().charAt(0);
                 scanner.nextLine();
@@ -32,7 +34,7 @@ public class Lv2 {
                 }
 
                 System.out.println("\n--- 계산 이력 ---");
-                calculator.history.printHistory();
+                calculator.getHistory().printHistory();
                 System.out.println("----------------\n");
 
                 System.out.print("프로그램을 종료하려면 \"exit\"를 입력하거나, 계속하려면 아무 키나 입력하시오: ");
@@ -42,7 +44,7 @@ public class Lv2 {
                     break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("잘못된 입력입니다. 숫자를 입력하시오");
+                System.out.println("잘못된 입력입니다. 정수를 입력하시오");
                 scanner.nextLine();
             } catch (Exception e) {
                 System.out.println("오류가 발생했습니다: " + e.getMessage());
@@ -102,32 +104,33 @@ class History {
 
 class Calculator {
 
-    Lv3.History history = new Lv3.History();
+    private History history = new History();
 
-    void add(double a, double b) {
-        calculate(a, b, '+', a + b);
+    void add(int a, int b) {
+        calculate(a, b, '+', (double)a + b);
     }
 
-    void subtract(double a, double b) {
-        calculate(a, b, '-', a - b);
+    void subtract(int a, int b) {
+        calculate(a, b, '-', (double)a - b);
     }
 
-    void multiply(double a, double b) {
-        calculate(a, b, '*', a * b);
+    void multiply(int a, int b) {
+        calculate(a, b, '*', (double)a * b);
     }
 
-    void divide(double a, double b) {
+    void divide(int a, int b) {
         if (b == 0) {
             System.out.println("0으로는 나눌 수 없습니다.");
             return;
         }
-        calculate(a, b, '/', a / b);
+        calculate(a, b, '/', (double)a / b);
     }
 
-
-
-    private void calculate(double a, double b, char operator, double result) {
+    private void calculate(int a, int b, char operator, double result) {
         System.out.println(a + " " + operator + " " + b + " = " + result);
         history.addHistory(result);
+    }
+    public History getHistory() {
+        return history;
     }
 }
