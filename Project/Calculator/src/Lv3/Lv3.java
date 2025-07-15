@@ -39,12 +39,12 @@ public class Lv3 {
                     break;
                 }
 
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException e) { // 숫자가 아닌 다른 값을 입력했을 때,
                 System.out.println("잘못된 입력입니다. 숫자를 입력하시오");
                 scanner.nextLine();
-            } catch (ArithmeticException e){
+            } catch (ArithmeticException e){ // 0으로 나누려고 했을 때, 예외 떠넘기기로 받는다.
                 System.out.println(e.getMessage());
-            } catch (Exception e) {
+            } catch (Exception e) { // 이외의 오류들
                 System.out.println("오류가 발생했습니다: " + e.getMessage());
                 scanner.nextLine();
             }

@@ -75,7 +75,7 @@ enum Operator {
         this.operation = operation;
     }
 
-    // 연산자 기호로 Operator 상수를 찾는 메서드
+    // 연산자 기호로 Operator를 찾는 메서드
     static Operator fromSymbol(char symbol) {
         for (Operator op : Operator.values()) {
             if (op.symbol.charAt(0) == symbol) {
