@@ -2,7 +2,7 @@ package 필수기능_lv2;
 
 import java.util.*;
 
-public class lv1 {
+public class lv2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<MenuItem> menuList = new ArrayList<>();
