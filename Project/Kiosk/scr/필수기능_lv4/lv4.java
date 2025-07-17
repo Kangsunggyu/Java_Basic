@@ -14,13 +14,17 @@ public class lv4 {
 
 class MenuItem {
     String name;
-    double price;
+    int price;
     String explain;
 
-    MenuItem(String name, double price, String explain) {
+    MenuItem(String name, int price, String explain) {
         this.name = name;
         this.price = price;
         this.explain = explain;
+    }
+    @Override
+    public String toString() {
+        return name + " | W " + price + " | " + explain;
     }
 }
 
@@ -38,9 +42,9 @@ class Kiosk {
             System.out.println("3. Desserts");
             System.out.println("0. 종료      | 종료");
             System.out.print(">> ");
-            int mainChoice = getInput();
+            int choice = getInt();
 
-            switch (mainChoice) {
+            switch (choice) {
                 case 1:
                     selectMenu("BURGERS", burgers.menuItems);
                     break;
@@ -67,7 +71,7 @@ class Kiosk {
             }
             System.out.println("0. 뒤로가기");
             System.out.print(">> ");
-            int choice = getInput();
+            int choice = getInt();
 
             if (choice == 0) return;
             else if (choice >= 1 && choice <= list.size()) {
@@ -78,24 +82,29 @@ class Kiosk {
             }
         }
     }
-
-    int getInput() {
-        try {
-            return Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            return -1;
+    int getInt() {
+        while (true) {
+            try {
+                int choice = scanner.nextInt();
+                scanner.nextLine(); // 버퍼 정리
+                return choice;
+            } catch (InputMismatchException e) {
+                System.out.print("숫자를 다시 입력하시오\n>>");
+                scanner.nextLine(); // 잘못된 입력 비우기
+            }
         }
     }
 }
 
-class Burgers {
-    List<MenuItem> menuItems = new ArrayList<>();
 
+
+class Burgers{
+    List<MenuItem> menuItems = new ArrayList<>();
     Burgers() {
-        menuItems.add(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
-        menuItems.add(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
-        menuItems.add(new MenuItem("Cheeseburger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
-        menuItems.add(new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
+        menuItems.add(new MenuItem("ShackBurger", 6900, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
+        menuItems.add(new MenuItem("SmokeShack", 8900, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
+        menuItems.add(new MenuItem("Cheeseburger", 6900, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
+        menuItems.add(new MenuItem("Hamburger", 5400, "비프패티를 기반으로 야채가 들어간 기본버거"));
     }
 }
 
@@ -103,8 +112,8 @@ class Drinks {
     List<MenuItem> menuItems = new ArrayList<>();
 
     Drinks() {
-        menuItems.add(new MenuItem("Lemonade", 3.5, "신선한 레몬으로 만든 상큼한 음료"));
-        menuItems.add(new MenuItem("Coke", 2.5, "톡 쏘는 시원한 콜라"));
+        menuItems.add(new MenuItem("Lemonade", 3500, "신선한 레몬으로 만든 상큼한 음료"));
+        menuItems.add(new MenuItem("Coke", 2500, "톡 쏘는 시원한 콜라"));
     }
 }
 
@@ -112,7 +121,7 @@ class Desserts {
     List<MenuItem> menuItems = new ArrayList<>();
 
     Desserts() {
-        menuItems.add(new MenuItem("Ice Cream", 4.0, "달콤한 바닐라 아이스크림"));
-        menuItems.add(new MenuItem("Cookie", 2.0, "촉촉한 초코칩 쿠키"));
+        menuItems.add(new MenuItem("Ice Cream", 4000, "달콤한 바닐라 아이스크림"));
+        menuItems.add(new MenuItem("Cookie", 2000, "촉촉한 초코칩 쿠키"));
     }
 }
