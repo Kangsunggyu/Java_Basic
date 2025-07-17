@@ -7,13 +7,13 @@ import java.util.Collections;
 public class _09_ArrayList {
     public static void main(String[] args) {
         // 순서 0 중복 0
-        ArrayList list = new ArrayList(10);
-        list.add(new Integer(5));
-        list.add(new Integer(4));
-        list.add(new Integer(2));
-        list.add(new Integer(0));
-        list.add(new Integer(1));
-        list.add(new Integer(3));
+        ArrayList<Integer> list = new ArrayList(10);
+        list.add(5);
+        list.add(4);
+        list.add(2);
+        list.add(0);
+        list.add(1);
+        list.add(3);
 
         ArrayList list2 = new ArrayList(list.subList(1, 4));
         System.out.println(list);

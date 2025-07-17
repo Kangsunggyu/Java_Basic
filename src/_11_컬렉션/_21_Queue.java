@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class _21_Queue {
     public static void main(String[] args) {
-        Queue q = new LinkedList();
+        Queue<String> q = new LinkedList();
 
         System.out.println("추가");
         q.offer("0");

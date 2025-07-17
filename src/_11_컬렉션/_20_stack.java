@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class _20_stack {
     public static void main(String[] args) {
-        Stack st = new Stack();
+        Stack<String> st = new Stack();
 
         System.out.println("추가");
         st.push("0");
