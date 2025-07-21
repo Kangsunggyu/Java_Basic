@@ -40,7 +40,7 @@ class Kiosk {
             System.out.println("1. Burgers");
             System.out.println("2. Drinks");
             System.out.println("3. Desserts");
-            System.out.println("0. 종료      | 종료");
+            System.out.println("0. 종료");
             System.out.print(">> ");
             int choice = getInt();
 
@@ -86,11 +86,11 @@ class Kiosk {
         while (true) {
             try {
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // 버퍼 정리
+                scanner.nextLine();
                 return choice;
             } catch (InputMismatchException e) {
                 System.out.print("숫자를 다시 입력하시오\n>>");
-                scanner.nextLine(); // 잘못된 입력 비우기
+                scanner.nextLine();
             }
         }
     }

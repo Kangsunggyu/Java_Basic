@@ -1,4 +1,4 @@
-package 필수기능_lv5;
+package 도전_lv1;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -12,7 +12,32 @@ public class lv5 {
     }
 }
 
-// 메뉴 아이템 클래스
+class Cart{ // 도전 lv1에 추가한 클래스
+    List<MenuItem> cartList = new ArrayList<>();
+    void addCart(MenuItem item) {
+        cartList.add(item);
+    }
+    void deleteCart(int num){
+        cartList.remove(num);
+    }
+    void printAllCart() {
+        if (cartList.isEmpty()) {
+            System.out.println("장바구니가 비어 있습니다.");
+            return;
+        }
+        for (MenuItem item : cartList) {
+            System.out.println(item.getName() + " | W "+item.getPrice());
+        }
+    }
+    int sumOfPrice(){
+        int sum=0;
+        for (MenuItem item : cartList) {
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+}
+
 class MenuItem {
     private String name;
     private int price;
@@ -36,7 +61,6 @@ class MenuItem {
     }
 }
 
-// 버거 메뉴 클래스
 class Burgers {
     private final List<MenuItem> menuItems = new ArrayList<>();
 
@@ -51,8 +75,6 @@ class Burgers {
         return menuItems;
     }
 }
-
-// 음료 메뉴 클래스
 class Drinks {
     private final List<MenuItem> menuItems = new ArrayList<>();
 
@@ -66,7 +88,6 @@ class Drinks {
     }
 }
 
-// 디저트 메뉴 클래스
 class Desserts {
     private final List<MenuItem> menuItems = new ArrayList<>();
 
@@ -79,13 +100,12 @@ class Desserts {
         return menuItems;
     }
 }
-
-// 키오스크 클래스
 class Kiosk {
     Scanner scanner = new Scanner(System.in);
     private final Burgers burgers = new Burgers();
     private final Drinks drinks = new Drinks();
     private final Desserts desserts = new Desserts();
+    Cart cart = new Cart();
 
     public void start() {
         while (true) {
@@ -108,7 +128,8 @@ class Kiosk {
                     selectMenu("DESSERTS", desserts.getMenuItems());
                     break;
                 case 0:
-                    System.out.println("프로그램을 종료합니다.");
+                    // 도전과제 lv1에 추가한 코드 0을 입력하면 주문한 목록을 보여주고 주문할 것인지 체크
+                    orderMenu();
                     return;
                 default:
                     System.out.println("잘못된 입력입니다.");
@@ -117,22 +138,54 @@ class Kiosk {
     }
 
     private void selectMenu(String categoryName, List<MenuItem> list) {
+        int choiceMenu, choiceAddCart;
         while (true) {
-            System.out.println("[ " + categoryName + " MENU ]");
+            System.out.println("\n[ " + categoryName + " MENU ]");
             for (int i = 0; i < list.size(); i++) {
                 System.out.println((i + 1) + ". " + list.get(i));
             }
             System.out.println("0. 뒤로가기");
             System.out.print(">> ");
-            int choice = getInt();
+            choiceMenu = getInt();
 
-            if (choice == 0) return;
-            else if (choice >= 1 && choice <= list.size()) {
-                System.out.println("\n선택한 메뉴: " + list.get(choice - 1));
+            if (choiceMenu == 0) return;
+            else if (choiceMenu >= 1 && choiceMenu <= list.size()) {
+                System.out.println("\n선택한 메뉴: " + list.get(choiceMenu - 1));
+
+                // 도전과제 lv1 에서 추가한 코드, 사용자가 추가한 메뉴를 받아 Cart 클래스의 리스트에 저장한다.
+                System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
+                System.out.print("1. 확인        2. 취소\n>> ");
+                choiceAddCart = scanner.nextInt();
+                scanner.nextLine();
+                if(choiceAddCart == 1){
+                    cart.addCart(list.get(choiceMenu-1));
+                    System.out.println(list.get(choiceMenu-1).getName() + "이 장바구니에 추가되었습니다.");
+                } else {
+                    System.out.println("장바구니에 추가하지 않았습니다.");
+                }
                 return;
             } else {
                 System.out.println("잘못된 입력입니다.");
             }
+        }
+    }
+
+    private void orderMenu(){ //도전 lv1에 추가한 메서드
+        System.out.println("\n[ ORDER MENU ]");
+        System.out.println("1. Orders");
+        System.out.println("2. Cancel");
+        System.out.print(">> ");
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        if(choice == 1){
+            System.out.println("아래와 같이 주문 하시겠습니까?");
+            System.out.println("\n[ Orders ]");
+            cart.printAllCart();
+            System.out.println("\n[ Total ]\nW " + cart.sumOfPrice());
+            System.out.println("주문이 완료되었습니다. \n금액은 W " + cart.sumOfPrice());
+        }else{
+            System.out.println("주문을 취소합니다.");
+
         }
     }
 
