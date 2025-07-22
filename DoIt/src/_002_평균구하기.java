@@ -11,18 +11,18 @@ import java.util.*;
 public class _002_평균구하기 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int num = scanner.nextInt();
-        List<Integer> list = new ArrayList<>();
+        Double num = scanner.nextDouble();
+        List<Double> list = new ArrayList<>();
 
         for (int i = 0; i < num; i++) {
-            list.add(scanner.nextInt());
+            list.add(scanner.nextDouble());
         }
 
-        int max = Collections.max(list);
+        Double max = Collections.max(list);
 
         List<Double> changeList = new ArrayList<>();
         for (int i = 0; i < num; i++) {
-            double changedScore = (double) list.get(i) / max * 100;
+            double changedScore = list.get(i) / max * 100;
             changeList.add(changedScore);
         }
 
@@ -32,12 +32,30 @@ public class _002_평균구하기 {
             sum += score;
         }
         double average = sum / num;
-
         System.out.printf("%.2f\n", average);
 
         // 추가적으로 각 값을 출력
         for (double score : changeList) {
             System.out.println(score);
         }
+
+        // 책의 문제 풀이
+
+        int n = scanner.nextInt();           // 점수 개수는 정수로 받는 게 자연스러움
+        double[] scores = new double[n];
+
+        max = 0.0;
+        for (int i = 0; i < n; i++) {
+            scores[i] = scanner.nextDouble();
+            if (scores[i] > max) max = scores[i];
+        }
+
+        sum = 0;
+        for (double score : scores) {
+            sum += score / max * 100;
+        }
+
+        System.out.printf("%.2f\n", sum / n);
+
     }
 }
