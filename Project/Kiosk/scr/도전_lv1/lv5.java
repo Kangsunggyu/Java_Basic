@@ -53,7 +53,7 @@ class Desserts extends MenuCategory {
     String getCategoryName() {return "DESSERTS";}
 }
 
-class Cart {
+class Cart { // 도전 lv1에 추가한 카트 클래스
     private final List<MenuItem> cartList = new ArrayList<>();
 
     void addCart(MenuItem item) {
@@ -105,7 +105,7 @@ class Kiosk {
             System.out.print(">> ");
             int choice = getInt();
 
-            if (choice == 0) {
+            if (choice == 0) { // 추상 클래스를 추가해 이에 맞추어 switch문을 변경
                 orderMenu();
                 return;
             } else if (choice >= 1 && choice <= categories.size()) {
@@ -148,7 +148,7 @@ class Kiosk {
         }
     }
 
-    private void orderMenu() {
+    private void orderMenu() { // 도전 lv1에 추가한 메서드 장바구니에 무엇이 들었고, 주문하는 메서드
         if (cart.isEmpty()) {
             System.out.println("장바구니가 비어 있습니다.");
             return;
