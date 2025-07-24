@@ -1,8 +1,7 @@
-package 도전_lv1;
+package 도전_lv2;
 
 import java.util.ArrayList;
 import java.util.List;
-
 class MenuItem {
     private String name;
     private int price;
@@ -18,9 +17,7 @@ class MenuItem {
     @Override
     public String toString() {return name + "   | W " + price + " | " + explain;}
 }
-
-
-abstract class MenuCategory { // 도전 LV1에 추가한 추상클래스 ..이렇게 쓰는건가?
+abstract class MenuCategory { // 추상클래스 이렇게 쓰는건가?
     protected List<MenuItem> menuItems = new ArrayList<>();
     abstract String getCategoryName();
     public List<MenuItem> getMenuItems() { // 각 카테고리의 리스트를 전달하는 메서드

@@ -7,7 +7,7 @@ public class _004_구간합구하기2 {
         int length = scanner.nextInt();       // 배열 크기
         int calculatorNum = scanner.nextInt(); // 질의 개수
 
-        int[][] array = new int[length + 1][length + 1];
+        int[][] array = new int[length + 1][length + 1]; // 0, 0은 0으로 비워두고 사용하지 않음 
         int[][] sumArray = new int[length + 1][length + 1];
 
         // 입력 및 누적합 배열 생성

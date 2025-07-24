@@ -19,7 +19,7 @@ class Kiosk {
         while (true) {
             System.out.println("\n[ MAIN MENU ]");
             for (int i = 0; i < categories.size(); i++) {
-                System.out.printf("%d. %s\n", i + 1, categories.get(i).getCategoryName());
+                System.out.printf("%d. %s\n", i + 1, categories.get(i).getCategoryName()); // 추상클래스를 활용한 카테고리별 이름 출력
             }
             System.out.println("0. 주문하기");
             System.out.print(">> ");
@@ -28,7 +28,7 @@ class Kiosk {
             if (choice == 0) { // 추상 클래스를 추가해 이에 맞추어 switch문을 변경
                 orderMenu();
                 return;
-            } else if (choice >= 1 && choice <= categories.size()) {
+            } else if (choice >= 1 && choice <= categories.size()) { // 사이즈에 없는 값을 입력했다면 else로
                 MenuCategory selectedCategory = categories.get(choice - 1);
                 selectMenu(selectedCategory);
             } else {
