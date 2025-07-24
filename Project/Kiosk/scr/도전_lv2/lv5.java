@@ -132,9 +132,9 @@ class Kiosk {
 
 enum DiscountRate { // 도전 lv2에 추가한 클래스
     NATIONAL_MERIT("1", "국가유공자 (10%)", price -> price * 0.90),
-    SOLDIER("2", "군인       (5%)", price -> price * 0.95),
-    STUDENT("3", "학생       (3%)", price -> price * 0.97),
-    NORMAL("4", "일반       (0%)", price -> price);
+    SOLDIER("2", "군인 (5%)", price -> price * 0.95),
+    STUDENT("3", "학생 (3%)", price -> price * 0.97),
+    NORMAL("4", "일반 (0%)", price -> price);
 
     private final String code; // 1, 2, 3, 4를 의미
     private final String label; // 국가유공자 10% 등을 의미
