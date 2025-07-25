@@ -6,10 +6,10 @@ public class _006_연속된자연수의합구하기 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int i = scanner.nextInt();
-        int count = 1;
+        int count = 1; //  15를 입력했다면 15 그 자체를 1
         int start_index = 1;
         int end_index = 1;
-        int sum = 0;
+        int sum = 0; // 1+2+3 등등
 
         while (end_index != i){
             if(sum == i){
