@@ -16,6 +16,7 @@ public class _010_최소값찾기 {
         for (int i = 0; i < num; i++) {
             // 슬라이딩 윈도우 시작 지점 계산
             int start = Math.max(0, i - checkNum + 1);
+            // i = 0 일때 -2 즉 0, i = 1 일때 0, i = 2 -> 0, i = 3 -> 1, i = 4 -> 2
 
             // 현재 윈도우 범위 추출
             int[] checkArray = new int[i - start + 1];
