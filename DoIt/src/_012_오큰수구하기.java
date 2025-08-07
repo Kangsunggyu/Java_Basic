@@ -1,5 +1,3 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -39,8 +37,7 @@ public class _012_오큰수구하기 {
             while (!stack.isEmpty() && array[stack.peek()] < array[i]){
                 result[stack.pop()] = array[i];
             }
-            // 오큰수가 아니라면 계속해서 스택에 값을 넣음
-            stack.push(i);
+            stack.push(i); // 0 , 1, 2, 3, 4 이러한 스택
         }
         while (!stack.empty()) {
             // 오큰수가 없으므로 -1을 지정
