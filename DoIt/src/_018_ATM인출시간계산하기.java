@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class _018_ATM인출시간계산하기 {
@@ -5,21 +6,22 @@ public class _018_ATM인출시간계산하기 {
         Scanner scanner = new Scanner(System.in);
         int length = scanner.nextInt();
         int[] needTime = new int[length];
-        int[] needAllTime = new int[length];
 
-        for (int i = 0; i <length ; i++) {
+        for (int i = 0; i < length; i++) {
             needTime[i] = scanner.nextInt();
         }
 
-        for (int i = 1; i < length; i++) {
-            int insertPoint = i;
-            int insertValue = needAllTime[i];
-            for (int j = i-1; j >=0 ; j--) {
-                if(needAllTime[j] < needAllTime[i]){
-                    insertPoint = j+1;
-                    break;
-                }
-            }
+        // 시간 오름차순 정렬
+        Arrays.sort(needTime);
+
+        int sum = 0;        // 전체 시간 합
+        int prefixSum = 0;  // 누적 합
+
+        for (int i = 0; i < length; i++) {
+            prefixSum += needTime[i];
+            sum += prefixSum;
         }
+
+        System.out.println(sum);
     }
 }
