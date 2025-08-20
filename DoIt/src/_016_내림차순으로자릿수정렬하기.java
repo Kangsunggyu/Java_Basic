@@ -13,7 +13,7 @@ public class _016_내림차순으로자릿수정렬하기 {
 
         for (int i = 0; i < array.length-1 ; i++) {
             int max = i;
-            for (int j= i+1; j < array.length; j++) {
+            for (int j= i+1; j < array.length; j++) { // i부분은 이미 가장 큰 값이기에 j = i+1
                 if(array[j] > array[max]){
                     max = j;
                 }
