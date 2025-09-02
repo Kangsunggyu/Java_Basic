@@ -41,21 +41,21 @@ public class _002_평균구하기 {
 
         // 책의 문제 풀이
 
-        int n = scanner.nextInt();           // 점수 개수는 정수로 받는 게 자연스러움
-        double[] scores = new double[n];
-
-        max = 0.0;
-        for (int i = 0; i < n; i++) {
-            scores[i] = scanner.nextDouble();
-            if (scores[i] > max) max = scores[i];
+        /*Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int[] array = new int[length];
+        for(int i; i< length ; i++){
+            array[i] = sc.nextInt();
         }
-
-        sum = 0;
-        for (double score : scores) {
-            sum += score / max * 100;
+        int max = 0;
+        int sum = 0;
+        for(int i; i< length ; i++){
+            if(max < array[i]) {
+                max = array[i];
+            }
+            sum = sum + array[i];
         }
-
-        System.out.printf("%.2f\n", sum / n);
-
+        System.out.printf(sum * 100.0 / max / N); // 한번에 처리해 로직을 간단히
+        */
     }
 }
