@@ -1,20 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /*
 수 n개가 주어졌을 대 i번부터 j번까지의 합을 구하는 프로그램을 작성
 구간합 공식과 배열합 공식을 사용
-
 */
+
 public class _003_구간합구하기 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int dataCount = scanner.nextInt();
-        int queryCount = scanner.nextInt();
+        int dataCount = scanner.nextInt(); // 데이터의 개수
+        int queryCount = scanner.nextInt(); // i~j까지 더하는 행위를 몇번 더 하는지
 
-        List<Integer> list= new ArrayList<>();
+        /*List<Integer> list= new ArrayList<>();
         list.add(0);  // 0번 인덱스: 합이 0인 기본값 이것을 사용해 쉽게 문제를 풀 수 있었다.
 
         int sum = 0;
@@ -28,7 +26,24 @@ public class _003_구간합구하기 {
             int end = scanner.nextInt();
             int rangeSum = list.get(end) - list.get(start - 1);
             System.out.println(rangeSum);
+        }*/
+
+        int sum = 0;
+        int[] array = new int[dataCount+1];
+        for (int i = 1; i <= dataCount; i++) {
+            int num = scanner.nextInt();
+            sum += num;
+            array[i] = sum;
         }
+
+        for (int i = 0; i < queryCount; i++) {
+            int start = scanner.nextInt();
+            int end = scanner.nextInt();
+            int rangeSum = array[end] - array[start-1];
+            System.out.println(rangeSum);
+        }
+
+
 
     }
 }

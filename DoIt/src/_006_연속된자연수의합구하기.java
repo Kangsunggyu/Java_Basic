@@ -11,18 +11,18 @@ public class _006_연속된자연수의합구하기 {
         int end_index = 1;
         int sum = 0; // 1+2+3 등등
 
-        while (end_index != i){
-            if(sum == i){
-                count++;
-                start_index++;
-                end_index = start_index;
-                sum =0;
-            } else if (sum > i) {
-                start_index++;
-                end_index = start_index;
-                sum = 0;
+        while (end_index != i){ // end_index가 15가 아니라면 계속 반복한다.
+            if(sum == i){ // 합이 15라면
+                count++; // 정확히 15를 맞추었기에 count += 1
+                start_index++; // 시작 지점을 하나 늘리고
+                end_index = start_index; // 엔드 포인트는 시작 인덱스가 된다.
+                sum =0; // 합은 다시 0
+            } else if (sum > i) { // 15보다 크니 15가 될 가능성이 없는 실패이다.
+                start_index++; // 시작 인덱스를 하나 늘리고
+                end_index = start_index; // 엔드 포인트는 시작 인덱스가 된다.
+                sum = 0; // 합은 다시 0
             } else{
-                sum += end_index;
+                sum += end_index; // 15보다 합이 작은 경우
                 end_index++;
 
             }

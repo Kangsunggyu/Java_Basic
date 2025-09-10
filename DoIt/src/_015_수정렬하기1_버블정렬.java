@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class _015_수정렬하기 {
+public class _015_수정렬하기1_버블정렬 {
     public static void main(String[] args) {
         // 버블정렬로 사용자가 입력한 수(개수)를 정렬하기
         Scanner scanner = new Scanner(System.in);
