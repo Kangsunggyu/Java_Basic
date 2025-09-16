@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class _016_내림차순으로자릿수정렬하기 {
+public class _017_내림차순으로자릿수정렬하기 {
     public static void main(String[] args) {
         // 선택정렬 사용하기
         // 연속된 숫자로 받기 12345 이런식으로 
